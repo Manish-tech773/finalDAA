@@ -282,15 +282,74 @@
             <li style="color: #555;">&#8226; Disaster Management - BFS, Dijkstra’s Algorithm</li>
           </ul>
           <div id="puneetCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Rabin-Karp Algorithm
-function rabinKarp(text, pattern) {
-  // Implementation here
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">
+// BFS Algorithm
+function bfs(graph, startNode) {
+  let queue = [];
+  let visited = new Set();
+  queue.push(startNode);
+  visited.add(startNode);
+
+  while (queue.length > 0) {
+    let node = queue.shift();
+    console.log(node);
+
+    for (let neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        queue.push(neighbor);
+        visited.add(neighbor);
+      }
+    }
+  }
 }
 
-// Knuth-Morris-Pratt Algorithm
-function kmpSearch(text, pattern) {
-  // Implementation here
-}</pre>
+// Dijkstra's Algorithm
+function dijkstra(graph, startNode) {
+  let distances = {};
+  let visited = new Set();
+  let pq = new PriorityQueue();
+
+  for (let node in graph) {
+    distances[node] = Infinity;
+  }
+  distances[startNode] = 0;
+  pq.enqueue([startNode, 0]);
+
+  while (!pq.isEmpty()) {
+    let [currentNode, currentDistance] = pq.dequeue();
+
+    if (visited.has(currentNode)) continue;
+    visited.add(currentNode);
+
+    for (let [neighbor, weight] of Object.entries(graph[currentNode])) {
+      let distance = currentDistance + weight;
+      if (distance < distances[neighbor]) {
+        distances[neighbor] = distance;
+        pq.enqueue([neighbor, distance]);
+      }
+    }
+  }
+
+  return distances;
+}
+
+// Priority Queue Implementation
+class PriorityQueue {
+  constructor() {
+    this.queue = [];
+  }
+  enqueue([node, priority]) {
+    this.queue.push([node, priority]);
+    this.queue.sort((a, b) => a[1] - b[1]);
+  }
+  dequeue() {
+    return this.queue.shift();
+  }
+  isEmpty() {
+    return this.queue.length === 0;
+  }
+}
+            </pre>
           </div>
         </div>
       </div>
@@ -304,62 +363,74 @@ function kmpSearch(text, pattern) {
             <li style="color: #555;">&#8226; Health Monitoring and Emergency - BFS, Dijkstra’s Algorithm</li>
           </ul>
           <div id="manishCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Kruskal's Algorithm
-function kruskal(graph) {
-  // Implementation here
-}
-
-// Prim's Algorithm
-function prim(graph) {
-  // Implementation here
-}</pre>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vinay Swarup -->
-      <div class="col-md-12">
-        <div class="box" style="background-color: #fff6da; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #ffc107; font-weight: bold; cursor: pointer;" onclick="toggleCode('vinayCode')">Vinay Swarup</h5>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="color: #555;">&#8226; Green Waste Management - BFS, Dijkstra’s Algorithm</li>
-          </ul>
-          <div id="vinayCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// BFS Algorithm
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">
+// BFS Algorithm
 function bfs(graph, startNode) {
-  // Implementation here
+  let queue = [];
+  let visited = new Set();
+  queue.push(startNode);
+  visited.add(startNode);
+
+  while (queue.length > 0) {
+    let node = queue.shift();
+    console.log(node);
+
+    for (let neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        queue.push(neighbor);
+        visited.add(neighbor);
+      }
+    }
+  }
 }
 
 // Dijkstra's Algorithm
 function dijkstra(graph, startNode) {
-  // Implementation here
-}</pre>
-          </div>
-        </div>
-      </div>
+  let distances = {};
+  let visited = new Set();
+  let pq = new PriorityQueue();
 
-      <!-- Abhishek R S -->
-      <div class="col-md-12">
-        <div class="box" style="background-color: #d1f7c4; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #17a2b8; font-weight: bold; cursor: pointer;" onclick="toggleCode('abhishekCode')">Abhishek R S</h5>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="color: #555;">&#8226; Smart Tourist Navigation - Dijkstra’s, Bellman Ford, Floyd’s Algorithm</li>
-          </ul>
-          <div id="abhishekCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Dijkstra's Algorithm
-function dijkstra(graph, startNode) {
-  // Implementation here
+  for (let node in graph) {
+    distances[node] = Infinity;
+  }
+  distances[startNode] = 0;
+  pq.enqueue([startNode, 0]);
+
+  while (!pq.isEmpty()) {
+    let [currentNode, currentDistance] = pq.dequeue();
+
+    if (visited.has(currentNode)) continue;
+    visited.add(currentNode);
+
+    for (let [neighbor, weight] of Object.entries(graph[currentNode])) {
+      let distance = currentDistance + weight;
+      if (distance < distances[neighbor]) {
+        distances[neighbor] = distance;
+        pq.enqueue([neighbor, distance]);
+      }
+    }
+  }
+
+  return distances;
 }
 
-// Bellman-Ford Algorithm
-function bellmanFord(graph, startNode) {
-  // Implementation here
+// Priority Queue Implementation
+class PriorityQueue {
+  constructor() {
+    this.queue = [];
+  }
+  enqueue([node, priority]) {
+    this.queue.push([node, priority]);
+    this.queue.sort((a, b) => a[1] - b[1]);
+  }
+  dequeue() {
+    return this.queue.shift();
+  }
+  isEmpty() {
+    return this.queue.length === 0;
+  }
 }
-
-// Floyd-Warshall Algorithm
-function floydWarshall(graph) {
-  // Implementation here
-}</pre>
+            </pre>
           </div>
         </div>
       </div>
