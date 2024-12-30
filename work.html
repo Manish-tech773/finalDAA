@@ -276,55 +276,13 @@
       <!-- Puneet Gadade -->
       <div class="col-md-12">
         <div class="box" style="background-color: #eef7fe; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #007bff; font-weight: bold; cursor: pointer;" onclick="showCode('puneet')">Puneet Gadade</h5>
+          <h5 style="color: #007bff; font-weight: bold; cursor: pointer;" onclick="toggleCode('puneetCode')">Puneet Gadade</h5>
           <ul style="list-style: none; padding: 0; margin: 0;">
             <li style="margin-bottom: 5px; color: #555;">&#8226; E-Governance System - Rabin-Karp Algorithm and KMP</li>
             <li style="color: #555;">&#8226; Disaster Management - BFS, Dijkstra’s Algorithm</li>
           </ul>
-        </div>
-      </div>
-
-      <!-- Manish V G -->
-      <div class="col-md-12">
-        <div class="box" style="background-color: #eaf4fc; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #28a745; font-weight: bold; cursor: pointer;" onclick="showCode('manish')">Manish V G</h5>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="margin-bottom: 5px; color: #555;">&#8226; Pure Water Distribution - Kruskal’s and Prim’s Algorithm</li>
-            <li style="color: #555;">&#8226; Health Monitoring and Emergency - BFS, Dijkstra’s Algorithm</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Vinay Swarup -->
-      <div class="col-md-12">
-        <div class="box" style="background-color: #fff6da; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #ffc107; font-weight: bold; cursor: pointer;" onclick="showCode('vinay')">Vinay Swarup</h5>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="color: #555;">&#8226; Green Waste Management - BFS, Dijkstra’s Algorithm</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Abhishek R S -->
-      <div class="col-md-12">
-        <div class="box" style="background-color: #d1f7c4; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-          <h5 style="color: #17a2b8; font-weight: bold; cursor: pointer;" onclick="showCode('abhishek')">Abhishek R S</h5>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="color: #555;">&#8226; Smart Tourist Navigation - Dijkstra’s, Bellman Ford, Floyd’s Algorithm</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- Code Display Section -->
-    <div id="codeDisplay" style="margin-top: 20px; display: none; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-      <pre id="codeBlock" style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;"></pre>
-    </div>
-  </div>
-</section>
-
-<script>
-  const codes = {
-    puneet: `// Rabin-Karp Algorithm
+          <div id="puneetCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Rabin-Karp Algorithm
 function rabinKarp(text, pattern) {
   // Implementation here
 }
@@ -332,8 +290,21 @@ function rabinKarp(text, pattern) {
 // Knuth-Morris-Pratt Algorithm
 function kmpSearch(text, pattern) {
   // Implementation here
-}`,
-    manish: `// Kruskal's Algorithm
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manish V G -->
+      <div class="col-md-12">
+        <div class="box" style="background-color: #eaf4fc; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #28a745; font-weight: bold; cursor: pointer;" onclick="toggleCode('manishCode')">Manish V G</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 5px; color: #555;">&#8226; Pure Water Distribution - Kruskal’s and Prim’s Algorithm</li>
+            <li style="color: #555;">&#8226; Health Monitoring and Emergency - BFS, Dijkstra’s Algorithm</li>
+          </ul>
+          <div id="manishCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Kruskal's Algorithm
 function kruskal(graph) {
   // Implementation here
 }
@@ -341,8 +312,20 @@ function kruskal(graph) {
 // Prim's Algorithm
 function prim(graph) {
   // Implementation here
-}`,
-    vinay: `// BFS Algorithm
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vinay Swarup -->
+      <div class="col-md-12">
+        <div class="box" style="background-color: #fff6da; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #ffc107; font-weight: bold; cursor: pointer;" onclick="toggleCode('vinayCode')">Vinay Swarup</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="color: #555;">&#8226; Green Waste Management - BFS, Dijkstra’s Algorithm</li>
+          </ul>
+          <div id="vinayCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// BFS Algorithm
 function bfs(graph, startNode) {
   // Implementation here
 }
@@ -350,8 +333,20 @@ function bfs(graph, startNode) {
 // Dijkstra's Algorithm
 function dijkstra(graph, startNode) {
   // Implementation here
-}`,
-    abhishek: `// Dijkstra's Algorithm
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abhishek R S -->
+      <div class="col-md-12">
+        <div class="box" style="background-color: #d1f7c4; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #17a2b8; font-weight: bold; cursor: pointer;" onclick="toggleCode('abhishekCode')">Abhishek R S</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="color: #555;">&#8226; Smart Tourist Navigation - Dijkstra’s, Bellman Ford, Floyd’s Algorithm</li>
+          </ul>
+          <div id="abhishekCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">// Dijkstra's Algorithm
 function dijkstra(graph, startNode) {
   // Implementation here
 }
@@ -364,14 +359,24 @@ function bellmanFord(graph, startNode) {
 // Floyd-Warshall Algorithm
 function floydWarshall(graph) {
   // Implementation here
-}`
-  };
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  function showCode(name) {
-    const codeBlock = document.getElementById('codeBlock');
-    const codeDisplay = document.getElementById('codeDisplay');
-    codeBlock.textContent = codes[name];
-    codeDisplay.style.display = 'block';
+<script>
+  function toggleCode(id) {
+    const codeContainer = document.getElementById(id);
+    const isVisible = codeContainer.style.display === 'block';
+    // Hide all code containers
+    document.querySelectorAll('.code-container').forEach(container => {
+      container.style.display = 'none';
+    });
+    // Toggle visibility of the clicked container
+    codeContainer.style.display = isVisible ? 'none' : 'block';
   }
 </script>
 
