@@ -284,26 +284,7 @@
           </ul>
           <div id="puneetCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
             <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">
-// BFS Algorithm
-function bfs(graph, startNode) {
-  let queue = [];
-  let visited = new Set();
-  queue.push(startNode);
-  visited.add(startNode);
-
-  while (queue.length > 0) {
-    let node = queue.shift();
-    console.log(node);
-
-    for (let neighbor of graph[node]) {
-      if (!visited.has(neighbor)) {
-        queue.push(neighbor);
-        visited.add(neighbor);
-      }
-    }
-  }
-}
-
+              
 // Dijkstra's Algorithm
 <!DOCTYPE html>
 <html lang="en">
