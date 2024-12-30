@@ -265,59 +265,116 @@
 </script>
 
 <!-- Research Topics Section -->
-<section class="research_section layout_padding">
+<section class="research_section layout_padding" style="padding: 40px 20px; background-color: #f8f9fa; font-family: 'Arial', sans-serif;">
   <div class="container">
-    <div class="heading_container">
-      <h2>
+    <div class="heading_container text-center" style="margin-bottom: 30px;">
+      <h2 style="color: #2c3e50; font-weight: bold;">
         Research Topics
       </h2>
     </div>
     <div class="row">
+      <!-- Puneet Gadade -->
       <div class="col-md-12">
-        <div class="box" style="background-color: #f2f2f2; border-radius: 10px; margin-bottom: 20px;">
-          <div class="detail-box">
-            <h5 style="color: #007bff;">Puneet Gadade</h5>
-            <ul>
-              <li>E-Governance System - Rabin-Karp Algorithm and KMP</li>
-              <li>Disaster Management - BFS, Dijkstra’s Algorithm</li>
-            </ul>
-          </div>
+        <div class="box" style="background-color: #eef7fe; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #007bff; font-weight: bold; cursor: pointer;" onclick="showCode('puneet')">Puneet Gadade</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 5px; color: #555;">&#8226; E-Governance System - Rabin-Karp Algorithm and KMP</li>
+            <li style="color: #555;">&#8226; Disaster Management - BFS, Dijkstra’s Algorithm</li>
+          </ul>
         </div>
       </div>
+
+      <!-- Manish V G -->
       <div class="col-md-12">
-        <div class="box" style="background-color: #eaf4fc; border-radius: 10px; margin-bottom: 20px;">
-          <div class="detail-box">
-            <h5 style="color: #28a745;">Manish V G</h5>
-            <ul>
-              <li>Pure Water Distribution - Kruskal’s and Prim’s Algorithm</li>
-              <li>Health Monitoring and Emergency - BFS, Dijkstra’s Algorithm</li>
-            </ul>
-          </div>
+        <div class="box" style="background-color: #eaf4fc; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #28a745; font-weight: bold; cursor: pointer;" onclick="showCode('manish')">Manish V G</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 5px; color: #555;">&#8226; Pure Water Distribution - Kruskal’s and Prim’s Algorithm</li>
+            <li style="color: #555;">&#8226; Health Monitoring and Emergency - BFS, Dijkstra’s Algorithm</li>
+          </ul>
         </div>
       </div>
+
+      <!-- Vinay Swarup -->
       <div class="col-md-12">
-        <div class="box" style="background-color: #fdfd96; border-radius: 10px; margin-bottom: 20px;">
-          <div class="detail-box">
-            <h5 style="color: #ffc107;">Vinay Swarup</h5>
-            <ul>
-              <li>Green Waste Management - BFS, Dijkstra’s Algorithm</li>
-            </ul>
-          </div>
+        <div class="box" style="background-color: #fff6da; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #ffc107; font-weight: bold; cursor: pointer;" onclick="showCode('vinay')">Vinay Swarup</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="color: #555;">&#8226; Green Waste Management - BFS, Dijkstra’s Algorithm</li>
+          </ul>
         </div>
       </div>
+
+      <!-- Abhishek R S -->
       <div class="col-md-12">
-        <div class="box" style="background-color: #d1f7c4; border-radius: 10px; margin-bottom: 20px;">
-          <div class="detail-box">
-            <h5 style="color: #17a2b8;">Abhishek R S</h5>
-            <ul>
-              <li>Smart Tourist Navigation - Dijkstra’s, Bellman Ford, Floyd’s Algorithm</li>
-            </ul>
-          </div>
+        <div class="box" style="background-color: #d1f7c4; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="color: #17a2b8; font-weight: bold; cursor: pointer;" onclick="showCode('abhishek')">Abhishek R S</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="color: #555;">&#8226; Smart Tourist Navigation - Dijkstra’s, Bellman Ford, Floyd’s Algorithm</li>
+          </ul>
         </div>
       </div>
     </div>
+    <!-- Code Display Section -->
+    <div id="codeDisplay" style="margin-top: 20px; display: none; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+      <pre id="codeBlock" style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;"></pre>
+    </div>
   </div>
 </section>
+
+<script>
+  const codes = {
+    puneet: `// Rabin-Karp Algorithm
+function rabinKarp(text, pattern) {
+  // Implementation here
+}
+
+// Knuth-Morris-Pratt Algorithm
+function kmpSearch(text, pattern) {
+  // Implementation here
+}`,
+    manish: `// Kruskal's Algorithm
+function kruskal(graph) {
+  // Implementation here
+}
+
+// Prim's Algorithm
+function prim(graph) {
+  // Implementation here
+}`,
+    vinay: `// BFS Algorithm
+function bfs(graph, startNode) {
+  // Implementation here
+}
+
+// Dijkstra's Algorithm
+function dijkstra(graph, startNode) {
+  // Implementation here
+}`,
+    abhishek: `// Dijkstra's Algorithm
+function dijkstra(graph, startNode) {
+  // Implementation here
+}
+
+// Bellman-Ford Algorithm
+function bellmanFord(graph, startNode) {
+  // Implementation here
+}
+
+// Floyd-Warshall Algorithm
+function floydWarshall(graph) {
+  // Implementation here
+}`
+  };
+
+  function showCode(name) {
+    const codeBlock = document.getElementById('codeBlock');
+    const codeDisplay = document.getElementById('codeDisplay');
+    codeBlock.textContent = codes[name];
+    codeDisplay.style.display = 'block';
+  }
+</script>
+
 <!-- End Research Topics Section -->
 
 <!-- Info Section -->
