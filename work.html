@@ -973,56 +973,212 @@
           <div id="abhishekCode" class="code-container" style="display: none; margin-top: 10px; background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
             <pre style="white-space: pre-wrap; color: #333; font-family: 'Courier New', Courier, monospace;">
 // Dijkstra's Algorithm (Example Implementation)
-function dijkstra(graph, startNode) {
-  let distances = {};
-  let visited = new Set();
-  let pq = new PriorityQueue();
+<!DOCTYPE html>
+<html lang="en">
 
-  for (let node in graph) {
-    distances[node] = Infinity;
-  }
-  distances[startNode] = 0;
-  pq.enqueue([startNode, 0]);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart Tourist Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  while (!pq.isEmpty()) {
-    let [currentNode, currentDistance] = pq.dequeue();
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #d3816b;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    if (visited.has(currentNode)) continue;
-    visited.add(currentNode);
+        /* Header Styling */
+        header {
+            background-color: #8A2BE2;
+            color: rgb(85, 64, 64);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+        }
 
-    for (let [neighbor, weight] of Object.entries(graph[currentNode])) {
-      let distance = currentDistance + weight;
-      if (distance < distances[neighbor]) {
-        distances[neighbor] = distance;
-        pq.enqueue([neighbor, distance]);
-      }
-    }
-  }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
 
-  return distances;
-}
+        header p {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
 
-// Priority Queue Implementation
-class PriorityQueue {
-  constructor() {
-    this.queue = [];
-  }
-  enqueue([node, priority]) {
-    this.queue.push([node, priority]);
-    this.queue.sort((a, b) => a[1] - b[1]);
-  }
-  dequeue() {
-    return this.queue.shift();
-  }
-  isEmpty() {
-    return this.queue.length === 0;
-  }
-}
-            </pre>
-          </div>
-        </div>
-      </div>
+        /* Content Section */
+        section {
+            background-color: #b4d2d4;
+            border: 1px solid #8A2BE2;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+        }
 
+        section h2 {
+            margin-top: 1.5rem;
+            color: #8A2BE2;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section h3 {
+            color: #8A2BE2;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        section h4 {
+            color: #555;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-top: 0.8rem;
+        }
+
+        /* List Styling */
+        ul {
+            margin-top: 1.2rem;
+            margin-left: 1.5rem;
+            list-style-type: disc;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Link Styling */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #8A2BE2;
+            color: rgb(225, 154, 154);
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #40E0D0;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section h3 {
+                font-size: 1.25rem;
+            }
+
+            section p, ul {
+                font-size: 1rem;
+            }
+
+            a {
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>smart Tourist Navigation</h1>
+        <p>Optimizing through Efficient Algorithms</p>
+    </header>
+
+    <!-- Content Section -->
+    <section>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart Tourist Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #efa27b;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>smart Tourist Navigation</h1>
+    <p>
+        Smart Tourist Navigation involves the use of technology to guide tourists efficiently through destinations, minimizing travel time and environmental impact.    </p>
+    
+    <h2>How Bellman-Ford Algorithm Is Used??</h2>
+    <p>
+        Smart Tourist Navigation uses advanced algorithms to calculate the most efficient routes for tourists, considering factors like time, distance, and environmental impact.     </p>
+    <h3>Graph Representation:</h3>
+    <p>The road network is represented as a graph, where:</p>
+    <ul>
+        <li><strong>Nodes</strong> represent locations (ex: intersections, landmarks).</li>
+        <li><strong>Edges</strong> represent roads between locations, each with a weight.</li>
+   
+    <h3>Output:</h3>
+    <p>The algorithm returns the path with the minimal environmental cost, considering the assigned weights.</p>
+ 
+    
+
+</body>
+</html>
+      
+        <h4>Bellman-Ford algorithm Implementation in C++</h4>
+        <p>
+            Here is the implementation of Bellman-Ford in C++. You can view the code using the
+            link below:
+        </p>
+        <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bell.cpp">Bellman-Ford</a>
+         
+    </section>
+</body>
+
+</html>
       <!-- Vinay Swarup -->
       <div class="col-md-12">
         <div class="box" style="background-color: #d1f7c4; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
@@ -1053,72 +1209,212 @@ function bfs(graph, startNode) {
 }
 
 // Dijkstra's Algorithm (Example Implementation)
-function dijkstra(graph, startNode) {
-  let distances = {};
-  let visited = new Set();
-  let pq = new PriorityQueue();
+<!DOCTYPE html>
+<html lang="en">
 
-  for (let node in graph) {
-    distances[node] = Infinity;
-  }
-  distances[startNode] = 0;
-  pq.enqueue([startNode, 0]);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart Tourist Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  while (!pq.isEmpty()) {
-    let [currentNode, currentDistance] = pq.dequeue();
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #d3816b;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    if (visited.has(currentNode)) continue;
-    visited.add(currentNode);
+        /* Header Styling */
+        header {
+            background-color: #8A2BE2;
+            color: rgb(85, 64, 64);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+        }
 
-    for (let [neighbor, weight] of Object.entries(graph[currentNode])) {
-      let distance = currentDistance + weight;
-      if (distance < distances[neighbor]) {
-        distances[neighbor] = distance;
-        pq.enqueue([neighbor, distance]);
-      }
-    }
-  }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
 
-  return distances;
-}
+        header p {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
 
-// Priority Queue Implementation
-class PriorityQueue {
-  constructor() {
-    this.queue = [];
-  }
-  enqueue([node, priority]) {
-    this.queue.push([node, priority]);
-    this.queue.sort((a, b) => a[1] - b[1]);
-  }
-  dequeue() {
-    return this.queue.shift();
-  }
-  isEmpty() {
-    return this.queue.length === 0;
-  }
-}
-            </pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        /* Content Section */
+        section {
+            background-color: #b4d2d4;
+            border: 1px solid #8A2BE2;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+        }
 
-<script>
-  function toggleCode(id) {
-    const codeContainer = document.getElementById(id);
-    const isVisible = codeContainer.style.display === 'block';
-    // Hide all code containers
-    document.querySelectorAll('.code-container').forEach(container => {
-      container.style.display = 'none';
-    });
-    // Toggle visibility of the clicked container
-    codeContainer.style.display = isVisible ? 'none' : 'block';
-  }
-</script>
+        section h2 {
+            margin-top: 1.5rem;
+            color: #8A2BE2;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
 
+        section h3 {
+            color: #8A2BE2;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        section h4 {
+            color: #555;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-top: 0.8rem;
+        }
+
+        /* List Styling */
+        ul {
+            margin-top: 1.2rem;
+            margin-left: 1.5rem;
+            list-style-type: disc;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Link Styling */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #8A2BE2;
+            color: rgb(225, 154, 154);
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #40E0D0;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            section h3 {
+                font-size: 1.25rem;
+            }
+
+            section p, ul {
+                font-size: 1rem;
+            }
+
+            a {
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>smart Tourist Navigation</h1>
+        <p>Optimizing through Efficient Algorithms</p>
+    </header>
+
+    <!-- Content Section -->
+    <section>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart Tourist Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #efa27b;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>smart Tourist Navigation</h1>
+    <p>
+        Smart Tourist Navigation involves the use of technology to guide tourists efficiently through destinations, minimizing travel time and environmental impact.    </p>
+    
+    <h2>How Bellman-Ford Algorithm Is Used??</h2>
+    <p>
+        Smart Tourist Navigation uses advanced algorithms to calculate the most efficient routes for tourists, considering factors like time, distance, and environmental impact.     </p>
+    <h3>Graph Representation:</h3>
+    <p>The road network is represented as a graph, where:</p>
+    <ul>
+        <li><strong>Nodes</strong> represent locations (ex: intersections, landmarks).</li>
+        <li><strong>Edges</strong> represent roads between locations, each with a weight.</li>
+   
+    <h3>Output:</h3>
+    <p>The algorithm returns the path with the minimal environmental cost, considering the assigned weights.</p>
+ 
+    
+
+</body>
+</html>
+      
+        <h4>Bellman-Ford algorithm Implementation in C++</h4>
+        <p>
+            Here is the implementation of Bellman-Ford in C++. You can view the code using the
+            link below:
+        </p>
+        <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bell.cpp">Bellman-Ford</a>
+         
+    </section>
+</body>
+
+</html>
 <!-- End Research Topics Section -->
 
 <!-- Info Section -->
