@@ -274,33 +274,73 @@
     <title>Research Topics</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f5;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
         .person-box {
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #ffffff, #e9f0f7);
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             padding: 20px;
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .person-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
         .person-box h5 {
             color: #007bff;
             margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
+
         .details {
             display: none;
-            padding-top: 10px;
-            font-size: 0.9em;
+            padding-top: 15px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .details p {
+            margin: 5px 0;
+        }
+
+        .details a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+
+        .details a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <section>
+    <section class="content">
         <h2>Research Topics</h2>
+
         <div class="person-box" onclick="toggleDetails('puneet-details')">
             <h5>Puneet Gadade</h5>
             <div id="puneet-details" class="details">
