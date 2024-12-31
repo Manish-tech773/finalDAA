@@ -266,57 +266,88 @@
 </script>
 
 <!-- Research Topics Section -->
-<section>
-    <h2>Research Topics</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .person-box {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            cursor: pointer;
+        }
+        .person-box h5 {
+            color: #007bff;
+            margin: 0;
+        }
+        .details {
+            display: none;
+            padding-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Research Topics</h2>
+        <div class="person-box" onclick="toggleDetails('puneet-details')">
+            <h5>Puneet Gadade</h5>
+            <div id="puneet-details" class="details">
+                <p><strong>E-Governance System:</strong> Rabin-Karp Algorithm, KMP Algorithm</p>
+                <p><strong>Disaster Management:</strong> BFS, Dijkstra’s Algorithm</p>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bfs.cpp">BFS Code</a><br>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp">Dijkstra’s Code</a>
+            </div>
+        </div>
 
-    <h3>Key Concepts</h3>
-    <ul>
-        <li><strong>Nodes:</strong> Represent locations (e.g., intersections, landmarks).</li>
-        <li><strong>Edges:</strong> Represent roads between locations, each with a weight.</li>
-    </ul>
+        <div class="person-box" onclick="toggleDetails('manish-details')">
+            <h5>Manish V G</h5>
+            <div id="manish-details" class="details">
+                <p><strong>Pure Water Distribution:</strong> Kruskal’s Algorithm, Prim’s Algorithm</p>
+                <p><strong>Health Monitoring and Emergency:</strong> BFS, Dijkstra’s Algorithm</p>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bfs.cpp">BFS Code</a><br>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp">Dijkstra’s Code</a>
+            </div>
+        </div>
 
-    <h3>Edge Weights</h3>
-    <p>Weights are calculated based on eco-friendly metrics such as:</p>
-    <ul>
-        <li>Fuel consumption (e.g., liters per kilometer).</li>
-        <li>Estimated carbon emissions.</li>
-        <li>Energy consumption for electric vehicles.</li>
-    </ul>
+        <div class="person-box" onclick="toggleDetails('vinay-details')">
+            <h5>Vinay Swarup</h5>
+            <div id="vinay-details" class="details">
+                <p><strong>Green Waste Management:</strong> BFS, Dijkstra’s Algorithm</p>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bfs.cpp">BFS Code</a><br>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp">Dijkstra’s Code</a>
+            </div>
+        </div>
 
-    <h3>Algorithm Execution</h3>
-    <ul>
-        <li>Starts from the source node and explores neighboring nodes.</li>
-        <li>Selects the path with the lowest cumulative environmental cost at each step.</li>
-        <li>Continues until the destination is reached.</li>
-    </ul>
+        <div class="person-box" onclick="toggleDetails('abhishek-details')">
+            <h5>Abhishek R S</h5>
+            <div id="abhishek-details" class="details">
+                <p><strong>Smart Tourist Navigation:</strong> Dijkstra’s Algorithm, Bellman-Ford Algorithm, Floyd’s Algorithm</p>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp">Dijkstra’s Code</a><br>
+                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bell.cpp">Bellman-Ford Code</a>
+            </div>
+        </div>
+    </section>
 
-    <h3>Algorithms</h3>
-    <ol>
-        <li>
-            <strong>Dijkstra's Algorithm</strong>  
-            <p>Finds the shortest path in a network of roads, critical for route optimization.</p>
-            <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp">View Code</a>
-        </li>
-        <li>
-            <strong>Breadth-First Search (BFS)</strong>  
-            <p>Finds the shortest path in an unweighted graph.</p>
-            <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bfs.cpp">View Code</a>
-        </li>
-        <li>
-            <strong>Bellman-Ford Algorithm</strong>  
-            <p>Handles graphs with negative weight edges, useful in dynamic traffic conditions.</p>
-            <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bellman.cpp">View Code</a>
-        </li>
-        <li>
-            <strong>Prim's Algorithm</strong>  
-            <p>Optimizes infrastructure networks, like water or electricity distribution.</p>
-            <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/prima.cpp">View Code</a>
-        </li>
-    </ol>
-
-    <h3>Output</h3>
-    <p>The algorithms return paths with minimal environmental costs, based on the assigned weights.</p>
-</section>
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.style.display = details.style.display === "none" || details.style.display === "" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
 
       <!-- Manish V G -->
       <div class="col-md-12">
