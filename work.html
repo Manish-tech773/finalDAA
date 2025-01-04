@@ -336,6 +336,12 @@
 
 
 
+
+
+
+
+
+
       
 <!DOCTYPE html>
 <html lang="en">
@@ -613,7 +619,190 @@ int main() {
             </code></pre>
         </div>
         <!-- End of Prim's Algorithm Box -->
-        
+
+             <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring and Emergency Algorithms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+        .algorithm-box {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        h6 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+            color: #444;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e1e1e1;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Monitoring and Emergency Response Algorithms</h1>
+
+        <!-- Dijkstra's Algorithm Box -->
+        <div class="algorithm-box">
+            <h6>Dijkstra's Algorithm for Health Monitoring and Emergency Response</h6>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;climits&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt; // For reverse
+
+using namespace std;
+
+// Function to find the shortest paths from a source to all destinations using Dijkstra's Algorithm
+void dijkstra(int source, const vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt;&amp; graph, const vector&lt;string&gt;&amp; areaNames, const vector&lt;vector&lt;string&gt;&gt;&amp; facilityDetails) {
+    int n = graph.size();
+    vector&lt;int&gt; distance(n, INT_MAX);
+    vector&lt;int&gt; parent(n, -1);
+    distance[source] = 0;
+
+    priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq;
+    pq.push({0, source});
+
+    while (!pq.empty()) {
+        int dist = pq.top().first;
+        int node = pq.top().second;
+        pq.pop();
+
+        if (dist &gt; distance[node]) continue;
+
+        for (const auto&amp; neighbor : graph[node]) {
+            int nextNode = neighbor.first;
+            int weight = neighbor.second;
+
+            if (distance[node] + weight &lt; distance[nextNode]) {
+                distance[nextNode] = distance[node] + weight;
+                parent[nextNode] = node;
+                pq.push({distance[nextNode], nextNode});
+            }
+        }
+    }
+
+    cout &lt;&lt; "\nShortest paths from \"" &lt;&lt; areaNames[source] &lt;&lt; "\" to all health emergency facilities:\n";
+
+    vector&lt;int&gt; facilities = {8, 9};
+    for (int facility : facilities) {
+        if (distance[facility] == INT_MAX) {
+            cout &lt;&lt; "No path available to \"" &lt;&lt; areaNames[facility] &lt;&lt; "\".\n";
+        } else {
+            vector&lt;int&gt; path;
+            for (int at = facility; at != -1; at = parent[at]) {
+                path.push_back(at);
+            }
+            reverse(path.begin(), path.end());
+
+            cout &lt;&lt; "Path to \"" &lt;&lt; areaNames[facility] &lt;&lt; "\": ";
+            for (size_t i = 0; i &lt; path.size(); i++) {
+                cout &lt;&lt; areaNames[path[i]];
+                if (i &lt; path.size() - 1) cout &lt;&lt; " -&gt; ";
+            }
+            cout &lt;&lt; "\nTotal Distance: " &lt;&lt; distance[facility] &lt;&lt; " km\n";
+
+            cout &lt;&lt; "Facility details for \"" &lt;&lt; areaNames[facility] &lt;&lt; "\":\n";
+            for (const string&amp; detail : facilityDetails[facility - 8]) {
+                cout &lt;&lt; " - " &lt;&lt; detail &lt;&lt; "\n";
+            }
+        }
+    }
+}
+
+int main() {
+    vector&lt;string&gt; areaNames = {
+        "Sector 17 (Residential Area)",
+        "Sector 22 (Market Area)",
+        "PGI Hospital",
+        "Sector 43 Bus Stand",
+        "Chandigarh Airport",
+        "Sector 35 (Residential Area)",
+        "Industrial Area Phase 1",
+        "Sector 21 (Residential Area)",
+        "Specialized Hospital",
+        "Emergency Shelter"
+    };
+
+    vector&lt;vector&lt;string&gt;&gt; facilityDetails = {
+        {"Cardiology Unit", "Oncology Department", "Emergency Room", "Trauma Center"},
+        {"Emergency Beds", "Food and Water Supply", "Ambulance Services", "First Aid Supplies"}
+    };
+
+    vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; graph(10);
+    graph[0].push_back({1, 4});
+    graph[0].push_back({2, 2});
+    graph[1].push_back({2, 5});
+    graph[1].push_back({3, 10});
+    graph[2].push_back({3, 3});
+    graph[3].push_back({4, 11});
+    graph[3].push_back({5, 9});
+    graph[4].push_back({5, 6});
+    graph[6].push_back({2, 8});
+    graph[7].push_back({1, 7});
+    graph[6].push_back({8, 5});
+    graph[7].push_back({9, 4});
+
+    cout &lt;&lt; "--- Health Monitoring and Emergency Response System ---\n";
+    cout &lt;&lt; "Available areas:\n";
+    for (size_t i = 0; i &lt; areaNames.size(); i++) {
+        cout &lt;&lt; i &lt;&lt; ": " &lt;&lt; areaNames[i] &lt;&lt; "\n";
+    }
+
+    int source;
+    cout &lt;&lt; "\nEnter the number corresponding to the current location: ";
+    cin &gt;&gt; source;
+
+    if (source &lt; 0 || source &gt;= areaNames.size()) {
+        cout &lt;&lt; "Invalid input. Please enter a valid area number.\n";
+    } else {
+        dijkstra(source, graph, areaNames, facilityDetails);
+    }
+
+    return 0;
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+</html>
+
+        <!-- End of Dijistra Algorithm Box -->
     </div>
 </div>
 
