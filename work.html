@@ -330,15 +330,172 @@
             </div>
         </div>
 
-        <div class="person-box" onclick="toggleDetails('manish-details')">
-            <h5>Manish V G</h5>
-            <div id="manish-details" class="details">
-                <p><strong>Pure Water Distribution:</strong> Kruskal’s Algorithm, Prim’s Algorithm</p>
-                <p><strong>Health Monitoring and Emergency:</strong> BFS, Dijkstra’s Algorithm</p>
-                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/bfs.cpp" target="_blank">BFS Code</a><br>
-                <a href="https://github.com/Puneetgadade12345/URBAN-MANAGEMENT-IN-CHANDIGARH/blob/main/diji.cpp" target="_blank">Dijkstra’s Code</a>
-            </div>
+
+
+
+
+
+
+      
+<div class="person-box" onclick="toggleDetails('manish-details')">
+    <h5>Manish V G</h5>
+    <div id="manish-details" class="details">
+        <p><strong>Pure Water Distribution:</strong> Kruskal’s Algorithm, Prim’s Algorithm</p>
+        <p><strong>Health Monitoring and Emergency:</strong> BFS, Dijkstra’s Algorithm</p>
+        
+        <!-- Kruskal's Algorithm Box -->
+        <div class="kruskal-box">
+            <h6>Kruskal's Algorithm for Pure Water Distribution</h6>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+// Structure to represent an edge
+struct Edge {
+    int source, destination, weight;
+};
+
+// Function to compare edges by weight (used for sorting)
+bool compareEdges(Edge a, Edge b) {
+    return a.weight &lt; b.weight;
+}
+
+// Function to find the root (or parent) of a set for a given vertex
+int findParent(vector<int>& parent, int vertex) {
+    if (parent[vertex] != vertex) {
+        parent[vertex] = findParent(parent, parent[vertex]); // Path compression
+    }
+    return parent[vertex];
+}
+
+// Function to perform union of two sets
+void unionSets(vector<int>& parent, vector<int>& rank, int root1, int root2) {
+    if (rank[root1] &lt; rank[root2]) {
+        parent[root1] = root2;
+    } else if (rank[root1] &gt; rank[root2]) {
+        parent[root2] = root1;
+    } else {
+        parent[root2] = root1;
+        rank[root1]++;
+    }
+}
+
+// Kruskal's Algorithm to find the Minimum Spanning Tree (MST)
+void kruskal(int vertices, vector<Edge>& edges) {
+    // Sort edges by weight
+    sort(edges.begin(), edges.end(), compareEdges);
+
+    // Initialize parent and rank for each vertex
+    vector<int> parent(vertices);
+    vector<int> rank(vertices, 0);
+    for (int i = 0; i &lt; vertices; i++) {
+        parent[i] = i;
+    }
+
+    vector<Edge> mst; // List to store edges included in the MST
+    int totalCost = 0;
+
+    // Iterate through sorted edges
+    for (auto& edge : edges) {
+        int root1 = findParent(parent, edge.source);
+        int root2 = findParent(parent, edge.destination);
+
+        // If adding this edge doesn't form a cycle
+        if (root1 != root2) {
+            mst.push_back(edge); // Add the edge to the MST
+            unionSets(parent, rank, root1, root2); // Union the sets
+            totalCost += edge.weight;
+        }
+    }
+
+    // Print the results
+    printf("Edges in the Minimum Spanning Tree:\n");
+    for (auto& edge : mst) {
+        printf("Zone %d -- Zone %d == Cost %d\n", edge.source, edge.destination, edge.weight);
+    }
+    printf("Total cost of the water distribution network: %d\n", totalCost);
+}
+
+// Main function
+int main() {
+    int vertices, edgesCount;
+
+    // Input the number of zones and pipelines
+    printf("Enter the number of zones (vertices): ");
+    cin &gt;&gt; vertices;
+    printf("Enter the number of pipelines (edges): ");
+    cin &gt;&gt; edgesCount;
+
+    vector<Edge> edges;
+
+    // Input the edges with their weights
+    printf("Enter the source, destination, and cost of each pipeline:\n");
+    for (int i = 0; i &lt; edgesCount; i++) {
+        int source, destination, weight;
+        printf("Pipeline %d: ", i + 1);
+        cin &gt;&gt; source &gt;&gt; destination &gt;&gt; weight;
+        edges.push_back({source, destination, weight});
+    }
+
+    // Run Kruskal's algorithm
+    kruskal(vertices, edges);
+
+    return 0;
+}
+            </code></pre>
         </div>
+        <!-- End of Kruskal's Algorithm Box -->
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="person-box" onclick="toggleDetails('vinay-details')">
             <h5>Vinay Swarup</h5>
